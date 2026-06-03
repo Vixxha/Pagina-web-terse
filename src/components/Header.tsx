@@ -40,20 +40,26 @@ export function Header() {
  
           {/* Logo */}
           <motion.div 
-            whileHover={{ scale: 1.02 }}
-            className="flex-shrink-0 flex items-center gap-3 cursor-pointer"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+            className="flex-shrink-0 flex items-center gap-3.5 cursor-pointer"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <div className="w-12 h-12 relative rounded-xl overflow-hidden shadow-sm flex items-center justify-center bg-white border border-gray-100">
+            <div className="w-14 h-14 md:w-16 md:h-16 relative rounded-2xl overflow-hidden shadow-md flex items-center justify-center bg-white border border-slate-100 transition-all duration-300 hover:shadow-lg">
               <img 
                 src={companyInfo.logo} 
                 alt={`${companyInfo.name} Logo`} 
-                className="object-contain w-full h-full p-0.5"
+                className="object-contain w-full h-full p-1 transition-transform duration-350"
               />
             </div>
-            <span className="font-black text-lg tracking-tight text-corporate-dark uppercase">
-              {companyInfo.name}
-            </span>
+            <div className="flex flex-col">
+              <span className="font-black text-lg md:text-xl tracking-tight text-corporate-dark leading-none">
+                TERSE
+              </span>
+              <span className="font-bold text-[10px] md:text-xs tracking-[0.18em] text-corporate-yellow uppercase mt-1 leading-none">
+                LIMITADA
+              </span>
+            </div>
           </motion.div>
 
           {/* Desktop Navigation */}

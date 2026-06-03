@@ -17,17 +17,22 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 relative rounded-xl overflow-hidden shadow-sm flex items-center justify-center bg-white border border-gray-100">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-16 h-16 relative rounded-2xl overflow-hidden shadow-md flex items-center justify-center bg-white border border-slate-100">
                 <img
                   src={companyInfo.logo}
                   alt={`${companyInfo.name} Logo`}
-                  className="object-contain w-full h-full p-0.5"
+                  className="object-contain w-full h-full p-1"
                 />
               </div>
-              <span className="font-black text-2xl tracking-tight text-corporate-dark uppercase">
-                {companyInfo.name}
-              </span>
+              <div className="flex flex-col">
+                <span className="font-black text-2xl tracking-tight text-corporate-dark leading-none">
+                  TERSE
+                </span>
+                <span className="font-bold text-xs tracking-[0.18em] text-corporate-yellow uppercase mt-1 leading-none">
+                  LIMITADA
+                </span>
+              </div>
             </div>
             <p className="text-gray-600 mb-8 max-w-md font-medium">
               Ofrecemos la mejor calidad en uniformes corporativos y ropa de trabajo. Con nosotros encuentras prendas diseñadas para durar, brindar comodidad y destacar la identidad profesional de tu empresa.
