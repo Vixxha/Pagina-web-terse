@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { getFeaturedProducts, Product } from "@/data/mockProducts";
 import { companyInfo, getWhatsAppLink } from "@/data/companyInfo";
@@ -10,9 +10,17 @@ import Image from "next/image";
 
 export function FeaturedProducts() {
   const [activeProduct, setActiveProduct] = useState<Product | null>(null);
+  const [currentSlide, setCurrentSlide] = useState<number>(0);
 
   // Get only featured products and limit to first 4 for a clean grid
   const featured = getFeaturedProducts().slice(0, 4);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % featured.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, [featured.length]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -60,13 +68,13 @@ export function FeaturedProducts() {
           </motion.p>
         </div>
 
-        {/* Products Grid */}
+        {/* Products Grid (Visible on Desktop/Tablet) */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-16"
+          className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-16"
         >
           {featured.map((product) => (
             <motion.div
@@ -113,6 +121,72 @@ export function FeaturedProducts() {
             </motion.div>
           ))}
         </motion.div>
+
+        {/* Mobile Slideshow (Visible only on cellphones) */}
+        <div className="block sm:hidden relative mb-16">
+          <div className="relative overflow-hidden rounded-3xl shadow-md border border-gray-100 bg-white flex flex-col min-h-[460px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentSlide}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.35, ease: "easeInOut" }}
+                className="flex flex-col h-full flex-grow"
+              >
+                {/* Product Image */}
+                <div className="relative aspect-[4/5] w-full overflow-hidden bg-corporate-gray/50 border-b border-gray-100">
+                  <Image
+                    src={featured[currentSlide].image}
+                    alt={featured[currentSlide].name}
+                    fill
+                    sizes="100vw"
+                    className="object-cover"
+                  />
+                  <span className="absolute top-4 left-4 bg-corporate-yellow text-corporate-dark font-extrabold text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-full shadow-sm z-10">
+                    Destacado
+                  </span>
+                </div>
+
+                {/* Content */}
+                <div className="p-6 flex flex-col flex-grow">
+                  <span className="text-xs font-bold text-corporate-yellow uppercase tracking-widest mb-2 block">
+                    {featured[currentSlide].category}
+                  </span>
+                  <h3 className="font-extrabold text-lg text-corporate-dark line-clamp-2 min-h-[3.5rem] leading-snug">
+                    {featured[currentSlide].name}
+                  </h3>
+                  
+                  <p className="text-gray-500 text-xs font-medium line-clamp-3 mb-6 flex-grow leading-relaxed">
+                    {featured[currentSlide].description}
+                  </p>
+
+                  <button
+                    onClick={() => setActiveProduct(featured[currentSlide])}
+                    className="w-full bg-corporate-dark hover:bg-corporate-yellow active:scale-[0.98] text-white hover:text-corporate-dark font-bold text-xs uppercase tracking-widest py-4 rounded-2xl transition-all duration-300 flex items-center justify-center gap-2 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-corporate-yellow"
+                  >
+                    <Info size={14} />
+                    Ver Detalle / Cotizar
+                  </button>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Indicator dots */}
+          <div className="flex justify-center gap-2 mt-4">
+            {featured.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentSlide(idx)}
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 focus:outline-none ${
+                  currentSlide === idx ? "bg-corporate-yellow w-6" : "bg-gray-300"
+                }`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+        </div>
 
         {/* View All CTA */}
         <div className="flex justify-center">
