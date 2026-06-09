@@ -17,7 +17,7 @@ export function Footer() {
     e.preventDefault();
     const text = `Hola Terse Limitada, mi nombre es *${formData.name.trim()}* (${formData.email.trim()}).\n\n*Asunto:* ${formData.subject}\n\n*Mensaje:* ${formData.message.trim()}`;
     const link = getWhatsAppLink(companyInfo.whatsapp1.number, text);
-    window.open(link, '_blank');
+    window.open(link, '_blank', 'noopener,noreferrer');
   };
 
   return (
