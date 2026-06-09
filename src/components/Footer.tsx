@@ -1,10 +1,25 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Trophy, Clock, MessageSquare, Mail, MapPin } from "lucide-react";
+import { Trophy, Clock, MessageSquare, Mail, MapPin, Send, User, ChevronDown } from "lucide-react";
 import { companyInfo, getWhatsAppLink } from "@/data/companyInfo";
+import { useState } from "react";
 
 export function Footer() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "Cotizar Chaquetas",
+    message: ""
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const text = `Hola Terse Limitada, mi nombre es *${formData.name.trim()}* (${formData.email.trim()}).\n\n*Asunto:* ${formData.subject}\n\n*Mensaje:* ${formData.message.trim()}`;
+    const link = getWhatsAppLink(companyInfo.whatsapp1.number, text);
+    window.open(link, '_blank');
+  };
+
   return (
     <footer id="contacto" className="bg-white border-t border-gray-100 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -18,18 +33,18 @@ export function Footer() {
             transition={{ duration: 0.6 }}
           >
             <div className="flex items-center gap-4 mb-8">
-              <div className="w-16 h-16 relative rounded-2xl overflow-hidden shadow-md flex items-center justify-center bg-white border border-slate-100">
+              <div className="w-20 h-20 md:w-24 md:h-24 relative flex items-center justify-center">
                 <img
                   src={companyInfo.logo}
                   alt={`${companyInfo.name} Logo`}
-                  className="object-contain w-full h-full p-1"
+                  className="object-contain w-full h-full drop-shadow-sm"
                 />
               </div>
               <div className="flex flex-col">
-                <span className="font-black text-2xl tracking-tight text-corporate-dark leading-none">
+                <span className="font-black text-3xl md:text-4xl tracking-tight text-corporate-dark leading-none">
                   TERSE
                 </span>
-                <span className="font-bold text-xs tracking-[0.18em] text-corporate-yellow uppercase mt-1 leading-none">
+                <span className="font-bold text-sm md:text-base tracking-[0.18em] text-corporate-yellow uppercase mt-1 leading-none">
                   LIMITADA
                 </span>
               </div>
@@ -53,18 +68,18 @@ export function Footer() {
                   href={getWhatsAppLink(companyInfo.whatsapp1.number, companyInfo.whatsapp1.message)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 hover:text-corporate-yellow transition-colors text-xs bg-corporate-gray px-4 py-2 rounded-xl w-fit"
+                  className="flex items-center gap-2.5 hover:text-corporate-yellow transition-colors text-sm font-bold bg-corporate-gray px-5 py-3 rounded-xl w-fit"
                 >
-                  <MessageSquare size={14} className="text-[#25D366]" />
+                  <MessageSquare size={18} className="text-[#25D366]" />
                   <span>Ventas 1: {companyInfo.whatsapp1.display}</span>
                 </a>
                 <a
                   href={getWhatsAppLink(companyInfo.whatsapp2.number, companyInfo.whatsapp2.message)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 hover:text-corporate-yellow transition-colors text-xs bg-corporate-gray px-4 py-2 rounded-xl w-fit"
+                  className="flex items-center gap-2.5 hover:text-corporate-yellow transition-colors text-sm font-bold bg-corporate-gray px-5 py-3 rounded-xl w-fit"
                 >
-                  <MessageSquare size={14} className="text-[#25D366]" />
+                  <MessageSquare size={18} className="text-[#25D366]" />
                   <span>Ventas 2: {companyInfo.whatsapp2.display}</span>
                 </a>
               </div>
@@ -88,78 +103,141 @@ export function Footer() {
             </div>
           </motion.div>
 
-          {/* Right Column - Schedule Form */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, type: "spring" }}
-            className="bg-corporate-yellow p-8 md:p-10 rounded-3xl shadow-2xl relative lg:-mt-32 z-20 border border-white/10"
+            className="bg-corporate-dark p-8 md:p-10 rounded-3xl shadow-2xl relative lg:-mt-24 z-20 border border-white/10"
           >
-            <h3 className="text-2xl font-black text-corporate-dark mb-6">
-              Envíanos un Mensaje
-            </h3>
-            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="flex flex-col gap-1">
+            <div className="mb-8">
+              <span className="text-corporate-yellow text-xs font-bold uppercase tracking-widest block mb-2">Contacto Directo</span>
+              <h3 className="text-2xl md:text-3xl font-black text-white">
+                Envíanos un Mensaje
+              </h3>
+            </div>
+            <form className="space-y-5" onSubmit={handleSubmit}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div className="relative">
                   <label htmlFor="name-input" className="sr-only">Tu Nombre</label>
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400">
+                    <User size={18} />
+                  </div>
                   <input
                     id="name-input"
                     type="text"
                     required
+                    value={formData.name}
+                    onChange={(e) => setFormData({...formData, name: e.target.value})}
                     placeholder="Tu Nombre"
-                    className="w-full bg-white px-4 py-3 border-none rounded-xl focus:ring-2 focus:ring-corporate-dark outline-none text-corporate-dark placeholder:text-gray-500 font-medium shadow-inner"
+                    className="w-full bg-white/5 pl-12 pr-4 py-3.5 border border-white/10 rounded-xl focus:ring-2 focus:ring-corporate-yellow focus:border-transparent outline-none text-white placeholder:text-gray-400 font-medium transition-all"
                   />
                 </div>
-                <div className="flex flex-col gap-1">
+                <div className="relative">
                   <label htmlFor="email-input" className="sr-only">Tu Email</label>
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400">
+                    <Mail size={18} />
+                  </div>
                   <input
                     id="email-input"
                     type="email"
                     required
+                    value={formData.email}
+                    onChange={(e) => setFormData({...formData, email: e.target.value})}
                     placeholder="Tu Email"
-                    className="w-full bg-white px-4 py-3 border-none rounded-xl focus:ring-2 focus:ring-corporate-dark outline-none text-corporate-dark placeholder:text-gray-500 font-medium shadow-inner"
+                    className="w-full bg-white/5 pl-12 pr-4 py-3.5 border border-white/10 rounded-xl focus:ring-2 focus:ring-corporate-yellow focus:border-transparent outline-none text-white placeholder:text-gray-400 font-medium transition-all"
                   />
                 </div>
               </div>
-              <div className="flex flex-col gap-1">
+              <div className="relative">
                 <label htmlFor="service-select" className="sr-only">Prenda a cotizar</label>
                 <select 
                   id="service-select" 
-                  className="w-full bg-white px-4 py-3 border-none rounded-xl focus:ring-2 focus:ring-corporate-dark outline-none text-gray-700 font-medium shadow-inner"
+                  value={formData.subject}
+                  onChange={(e) => setFormData({...formData, subject: e.target.value})}
+                  className="w-full bg-white/5 px-4 py-3.5 border border-white/10 rounded-xl focus:ring-2 focus:ring-corporate-yellow focus:border-transparent outline-none text-white font-medium appearance-none transition-all cursor-pointer"
                 >
-                  <option>Cotizar Chaquetas</option>
-                  <option>Cotizar Micropolares</option>
-                  <option>Cotizar Parkas</option>
-                  <option>Otras Rendas / Uniformes</option>
+                  <option value="Cotizar Chaquetas" className="text-corporate-dark">Cotizar Chaquetas</option>
+                  <option value="Cotizar Micropolares" className="text-corporate-dark">Cotizar Micropolares</option>
+                  <option value="Cotizar Parkas" className="text-corporate-dark">Cotizar Parkas</option>
+                  <option value="Cotizar Pantalones" className="text-corporate-dark">Cotizar Pantalones</option>
+                  <option value="Cotizar Poleras" className="text-corporate-dark">Cotizar Poleras</option>
+                  <option value="Otras Prendas / Uniformes" className="text-corporate-dark">Otras Prendas / Uniformes</option>
                 </select>
+                <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-gray-400">
+                  <ChevronDown size={18} />
+                </div>
               </div>
-              <div className="flex flex-col gap-1">
+              <div className="relative">
                 <label htmlFor="message-textarea" className="sr-only">Requerimiento</label>
                 <textarea
                   id="message-textarea"
                   required
+                  value={formData.message}
+                  onChange={(e) => setFormData({...formData, message: e.target.value})}
                   placeholder="Detalla tu requerimiento de uniformes corporativos..."
                   rows={4}
-                  className="w-full bg-white px-4 py-3 border-none rounded-xl focus:ring-2 focus:ring-corporate-dark outline-none resize-none text-corporate-dark placeholder:text-gray-500 font-medium shadow-inner"
+                  className="w-full bg-white/5 px-4 py-3.5 border border-white/10 rounded-xl focus:ring-2 focus:ring-corporate-yellow focus:border-transparent outline-none resize-none text-white placeholder:text-gray-400 font-medium transition-all"
                 ></textarea>
               </div>
               <motion.button
-                whileHover={{ scale: 1.01 }}
-                whileTap={{ scale: 0.99 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="w-full bg-corporate-dark hover:bg-black active:scale-[0.98] text-white font-bold py-4 rounded-full shadow-md hover:shadow-xl transition-all uppercase text-xs tracking-widest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-corporate-dark cursor-pointer"
+                className="w-full bg-corporate-yellow hover:bg-[#e6a300] text-corporate-dark font-black py-4 rounded-xl shadow-lg transition-all uppercase text-xs tracking-widest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-corporate-yellow flex items-center justify-center gap-2 mt-2"
               >
-                Enviar Mensaje
+                <Send size={16} />
+                Enviar Mensaje por WhatsApp
               </motion.button>
             </form>
           </motion.div>
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="bg-corporate-dark text-gray-400 py-6 text-sm text-center border-t border-white/5">
-        <p>&copy; {new Date().getFullYear()} {companyInfo.name}. Todos los derechos reservados.</p>
+      {/* Expanded Bottom Footer */}
+      <div className="bg-corporate-dark text-gray-300 py-12 px-4 sm:px-6 lg:px-8 border-t border-white/5">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+          <div>
+            <h4 className="text-white font-bold mb-5 uppercase text-sm tracking-widest text-corporate-yellow">Navegación</h4>
+            <ul className="space-y-3 text-sm font-medium">
+              <li><a href="/" className="hover:text-white transition-colors">Inicio</a></li>
+              <li><a href="/nosotros" className="hover:text-white transition-colors">Nosotros</a></li>
+              <li><a href="/catalogo" className="hover:text-white transition-colors">Catálogo de Productos</a></li>
+              <li><a href="/#contacto" className="hover:text-white transition-colors">Solicitar Cotización</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-white font-bold mb-5 uppercase text-sm tracking-widest text-corporate-yellow">Contacto Directo</h4>
+            <ul className="space-y-3 text-sm font-medium">
+              <li className="flex items-center gap-2">
+                <Mail size={16} className="text-gray-500" />
+                <a href={`mailto:${companyInfo.email}`} className="hover:text-white transition-colors">{companyInfo.email}</a>
+              </li>
+              <li className="flex items-center gap-2">
+                <MessageSquare size={16} className="text-[#25D366]" />
+                <a href={getWhatsAppLink(companyInfo.whatsapp1.number, companyInfo.whatsapp1.message)} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">{companyInfo.whatsapp1.display}</a>
+              </li>
+              <li className="flex items-center gap-2">
+                <MessageSquare size={16} className="text-[#25D366]" />
+                <a href={getWhatsAppLink(companyInfo.whatsapp2.number, companyInfo.whatsapp2.message)} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">{companyInfo.whatsapp2.display}</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-white font-bold mb-5 uppercase text-sm tracking-widest text-corporate-yellow">Ubicación</h4>
+            <div className="text-sm font-medium leading-relaxed flex items-start gap-2">
+              <MapPin size={16} className="text-gray-500 shrink-0 mt-0.5" />
+              <p>
+                {companyInfo.address}<br />
+                {companyInfo.commune}<br />
+                {companyInfo.city}, {companyInfo.country}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="max-w-7xl mx-auto text-sm text-center border-t border-white/10 pt-8 text-gray-500">
+          <p>&copy; {new Date().getFullYear()} {companyInfo.name}. Todos los derechos reservados.</p>
+        </div>
       </div>
     </footer>
   );

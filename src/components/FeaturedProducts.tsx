@@ -6,6 +6,7 @@ import { getFeaturedProducts, Product } from "@/data/mockProducts";
 import { companyInfo, getWhatsAppLink } from "@/data/companyInfo";
 import { MessageSquare, X, Info, CheckCircle2, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export function FeaturedProducts() {
   const [activeProduct, setActiveProduct] = useState<Product | null>(null);
@@ -76,10 +77,12 @@ export function FeaturedProducts() {
             >
               {/* Product Image */}
               <div className="relative aspect-[4/5] w-full overflow-hidden bg-corporate-gray/50 border-b border-gray-100">
-                <img
+                <Image
                   src={product.image}
                   alt={product.name}
-                  className="object-cover w-full h-full group-hover:scale-[1.02] transition-transform duration-700"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover group-hover:scale-[1.02] transition-transform duration-700"
                 />
                 <span className="absolute top-4 left-4 bg-corporate-yellow text-corporate-dark font-extrabold text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-full shadow-sm z-10">
                   Destacado
@@ -156,10 +159,12 @@ export function FeaturedProducts() {
 
               {/* Left Column: Image */}
               <div className="w-full md:w-1/2 bg-corporate-gray/50 relative aspect-[4/5] md:aspect-auto md:min-h-[500px]">
-                <img
+                <Image
                   src={activeProduct.image}
                   alt={activeProduct.name}
-                  className="object-cover w-full h-full"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
                 />
               </div>
 

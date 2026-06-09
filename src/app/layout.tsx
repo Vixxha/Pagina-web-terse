@@ -9,8 +9,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Terse Limitada | Ropa Corporativa, Chaquetas, Micropolares y Parkas",
-  description: "Ofrecemos las mejores prendas corporativas: chaquetas, micropolares y parkas con excelente durabilidad, confección a medida y materiales de primera calidad.",
+  title: "Terse Limitada | Ropa Corporativa, Chaquetas, Micropolares, Parkas, Pantalones y Poleras",
+  description: "Ofrecemos las mejores prendas corporativas: chaquetas, micropolares, parkas, pantalones y poleras con excelente durabilidad, confección a medida y de primera calidad.",
 };
 
 export default function RootLayout({

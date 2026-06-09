@@ -4,17 +4,30 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { mockProducts, Product } from "@/data/mockProducts";
 import { companyInfo, getWhatsAppLink } from "@/data/companyInfo";
-import { MessageSquare, X, Info, CheckCircle2 } from "lucide-react";
+import { MessageSquare, X, Info, CheckCircle2, Search } from "lucide-react";
+import Image from "next/image";
 
 export function Catalog() {
-  const [selectedCategory, setSelectedCategory] = useState<string>("Todos");
+  const [selectedCategory, setSelectedCategory] = useState<string>("Chaquetas");
   const [activeProduct, setActiveProduct] = useState<Product | null>(null);
+  const [visibleCount, setVisibleCount] = useState<number>(8);
+  const [searchTerm, setSearchTerm] = useState<string>("");
 
-  const categories = ["Todos", "Chaquetas", "Micropolares", "Parkas"];
+  const categories = ["Chaquetas", "Micropolares", "Parkas", "Pantalones", "Poleras"];
 
-  const filteredProducts = selectedCategory === "Todos"
-    ? mockProducts
-    : mockProducts.filter((p) => p.category === selectedCategory);
+  const filteredProducts = mockProducts.filter((p) => {
+    const matchesCategory = p.category === selectedCategory;
+    const matchesSearch = p.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                          p.description.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
+  const visibleProducts = filteredProducts.slice(0, visibleCount);
+
+  const handleCategoryChange = (cat: string) => {
+    setSelectedCategory(cat);
+    setSearchTerm("");
+    setVisibleCount(8);
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -69,7 +82,7 @@ export function Catalog() {
           {categories.map((cat) => (
             <motion.button
               key={cat}
-              onClick={() => setSelectedCategory(cat)}
+              onClick={() => handleCategoryChange(cat)}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className={`px-6 py-3 rounded-full font-bold uppercase text-xs tracking-wider transition-all duration-300 shadow-sm border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-corporate-yellow ${selectedCategory === cat
@@ -82,6 +95,34 @@ export function Catalog() {
           ))}
         </div>
 
+        {/* Basic Search Filter */}
+        <div className="max-w-md mx-auto mb-12 relative">
+          <div className="relative flex items-center">
+            <Search className="absolute left-4 text-gray-400" size={20} />
+            <input
+              type="text"
+              placeholder={`Buscar en ${selectedCategory}... (ej. Hombre, Mujer, térmico)`}
+              value={searchTerm}
+              onChange={(e) => {
+                setSearchTerm(e.target.value);
+                setVisibleCount(8); // Reset pagination on search
+              }}
+              className="w-full bg-white border border-gray-200 text-corporate-dark font-medium rounded-full py-4 pl-12 pr-6 shadow-sm focus:outline-none focus:ring-2 focus:ring-corporate-yellow focus:border-transparent transition-all"
+            />
+            {searchTerm && (
+              <button 
+                onClick={() => {
+                  setSearchTerm("");
+                  setVisibleCount(8);
+                }}
+                className="absolute right-4 text-gray-400 hover:text-corporate-dark transition-colors"
+              >
+                <X size={18} />
+              </button>
+            )}
+          </div>
+        </div>
+
         {/* Product Grid */}
         <motion.div
           layout
@@ -91,7 +132,7 @@ export function Catalog() {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
         >
           <AnimatePresence mode="popLayout">
-            {filteredProducts.map((product) => (
+            {visibleProducts.map((product) => (
               <motion.div
                 layout
                 key={product.id}
@@ -104,10 +145,12 @@ export function Catalog() {
               >
                 {/* Product Image Container */}
                 <div className="relative aspect-[4/5] w-full overflow-hidden bg-corporate-gray/50 border-b border-gray-100">
-                  <img
+                  <Image
                     src={product.image}
                     alt={product.name}
-                    className="object-cover w-full h-full group-hover:scale-[1.02] transition-transform duration-700"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-[1.02] transition-transform duration-700"
                   />
                   {product.featured && (
                     <span className="absolute top-4 left-4 bg-corporate-yellow text-corporate-dark font-extrabold text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-full shadow-sm z-10">
@@ -141,6 +184,26 @@ export function Catalog() {
             ))}
           </AnimatePresence>
         </motion.div>
+
+        {filteredProducts.length === 0 && (
+          <div className="text-center py-12">
+            <p className="text-gray-500 font-medium">No se encontraron productos que coincidan con tu búsqueda.</p>
+          </div>
+        )}
+
+        {/* Load More Button */}
+        {visibleCount < filteredProducts.length && (
+          <div className="mt-12 flex justify-center">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setVisibleCount((prev) => prev + 8)}
+              className="px-8 py-3 bg-white text-corporate-dark font-bold text-sm uppercase tracking-wider rounded-full shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200"
+            >
+              Cargar más productos
+            </motion.button>
+          </div>
+        )}
       </div>
 
       {/* Product Detail Modal */}
@@ -175,10 +238,12 @@ export function Catalog() {
 
               {/* Left Column: Image */}
               <div className="w-full md:w-1/2 bg-corporate-gray/50 relative aspect-[4/5] md:aspect-auto md:min-h-[500px]">
-                <img
+                <Image
                   src={activeProduct.image}
                   alt={activeProduct.name}
-                  className="object-cover w-full h-full"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
                 />
               </div>
 

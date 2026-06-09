@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Placeholder } from "./ui/Placeholder";
 import { CheckCircle2 } from "lucide-react";
+import Image from "next/image";
 
 export function MissionSection() {
   const containerVariants = {
@@ -112,15 +113,18 @@ export function MissionSection() {
               variants={itemVariants}
               className="flex items-center gap-6 pt-6 border-t border-gray-100"
             >
-              <div className="w-12 h-12 rounded-full overflow-hidden shadow-md">
-                <Placeholder text="CEO" variant="light" className="w-full h-full" />
+              <div className="w-12 h-12 rounded-full overflow-hidden shadow-md relative">
+                <Image src="/Catalogo-image/Marcelo.webp" alt="Marcelo Segovia" fill className="object-cover" />
               </div>
               <div>
-                <p className="font-bold text-corporate-dark">Juan Pérez</p>
+                <a href="https://www.linkedin.com/in/marcelo-segovia-22a2794a/" target="_blank" rel="noopener noreferrer" className="font-bold text-corporate-dark hover:text-blue-600 transition-colors flex items-center gap-2">
+                  Marcelo Segovia
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#0A66C2]"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
                 <p className="text-xs text-gray-500 uppercase font-bold tracking-wider">CEO & Fundador</p>
               </div>
               <div className="ml-auto">
-                <span className="text-2xl font-signature text-gray-400 select-none">JPerez</span>
+                <span className="text-2xl font-signature text-gray-400 select-none">MSegovia</span>
               </div>
             </motion.div>
           </motion.div>

@@ -1,7 +1,6 @@
 import { TopBar } from "@/components/TopBar";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { MissionSection } from "@/components/MissionSection";
 import { FeaturedProducts } from "@/components/FeaturedProducts";
 import { CtaBanner } from "@/components/CtaBanner";
 import { LocationSection } from "@/components/LocationSection";
@@ -14,7 +13,6 @@ export default function Home() {
       <Header />
       <main className="flex-grow">
         <Hero />
-        <MissionSection />
         <FeaturedProducts />
         <CtaBanner />
         <LocationSection />

@@ -274,6 +274,217 @@ export const mockProducts: Product[] = [
     description: "Parka de abrigo práctica y muy funcional para hombre. Resistente al agua, cortaviento, con costuras selladas y múltiples bolsillos que facilitan el trabajo operativo en terreno.",
     details: ["Línea de trabajo Practical Line", "Costuras principales selladas", "Múltiples bolsillos multiuso", "Pretina con cordón de ajuste"],
     featured: false
+  },
+  
+  // 4. Pantalones (4 productos)
+  {
+    id: "pantalon-1",
+    name: "Pantalón Cargo Classic Hombre",
+    category: "Pantalones",
+    image: "/Catalogo-image/pantalon-cargo-classic-hombre-65-poly-35-alg (1).webp",
+    description: "Pantalón cargo de trabajo para hombre. Confeccionado en tela resistente, múltiples bolsillos reforzados y costuras de alta tenacidad ideal para uso industrial y corporativo.",
+    details: ["Tela resistente al desgarro", "Bolsillos laterales tipo cargo", "Costuras triples", "Cintura elástica trasera"],
+    featured: true
+  },
+  {
+    id: "pantalon-2",
+    name: "Pantalón Cargo Classic Mujer",
+    category: "Pantalones",
+    image: "/Catalogo-image/pantalon-cargo-classic-mujer-65-poly-35-alg (1).webp",
+    description: "Pantalón cargo de trabajo para mujer. Ajuste ergonómico femenino, ofreciendo comodidad, durabilidad y funcionalidad para el día a día laboral.",
+    details: ["Calce anatómico", "Bolsillos multifuncionales", "Tela de alta densidad", "Refuerzo en zona de rodillas"],
+    featured: true
+  },
+  {
+    id: "pantalon-3",
+    name: "Pantalón Alta Visibilidad Hombre",
+    category: "Pantalones",
+    image: "/Catalogo-image/pantalon-alta-visibilidad-bi-color-clase-2-hombre.webp",
+    description: "Pantalón técnico con protección y alta visibilidad para minería e industria pesada.",
+    details: ["Certificación Clase 2", "Reflectantes incorporados", "Costuras de alta resistencia", "Alta visibilidad integrada"],
+    featured: false
+  },
+  {
+    id: "pantalon-4",
+    name: "Pantalón Iron Line Onix Hombre",
+    category: "Pantalones",
+    image: "/Catalogo-image/pantalon-iron-line-onix-hombre.webp",
+    description: "Pantalón resistente Iron Line Onix, diseñado para trabajos en condiciones extremas con refuerzos estratégicos.",
+    details: ["Alta resistencia", "Refuerzos en rodillas", "Ajuste cómodo", "Bolsillos utilitarios"],
+    featured: true
+  },
+  {
+    id: "pantalon-5",
+    name: "Jeans Free Action Line Mujer",
+    category: "Pantalones",
+    image: "/Catalogo-image/jeans-free-action-line-mujer-76-alg-22-poly-2-spx-azul-t36.webp",
+    description: "Jeans elásticos de trabajo para mujer, línea Free Action. Máxima comodidad con mezcla de algodón y spandex.",
+    details: ["76% Algodón, 2% Spandex", "Línea Free Action", "Libertad de movimiento", "Calce ajustado"],
+    featured: false
+  },
+  {
+    id: "pantalon-6",
+    name: "Jeans Practical Line Hombre",
+    category: "Pantalones",
+    image: "/Catalogo-image/jeans-practical-line-hombre-100-alg-azul-t40.webp",
+    description: "Jeans clásicos de trabajo 100% algodón para hombre. Duraderos y cómodos para el trabajo diario.",
+    details: ["100% Algodón", "Costuras reforzadas", "Corte clásico", "Línea Practical"],
+    featured: false
+  },
+  {
+    id: "pantalon-7",
+    name: "Jeans Practical Line Mujer",
+    category: "Pantalones",
+    image: "/Catalogo-image/jeans-practical-line-mujer-100-alg.webp",
+    description: "Jeans clásicos 100% algodón para mujer. Excelente ajuste y resistencia al desgaste industrial.",
+    details: ["100% Algodón de alta densidad", "Línea Practical", "Bolsillos reforzados", "Uso industrial y corporativo"],
+    featured: false
+  },
+  {
+    id: "pantalon-8",
+    name: "Pantalón Actium Canvas Hombre",
+    category: "Pantalones",
+    image: "/Catalogo-image/pantalon-actium-canvas-hombre (2).webp",
+    description: "Pantalón técnico Actium Canvas para hombre. Tela extra resistente ideal para trabajos en terreno y faena pesada.",
+    details: ["Tela Canvas pesada", "Alta durabilidad", "Múltiples bolsillos de carga", "Costuras de seguridad"],
+    featured: false
+  },
+  {
+    id: "pantalon-9",
+    name: "Pantalón Cargo Gabardina Practical Line c/ Cinta",
+    category: "Pantalones",
+    image: "/Catalogo-image/pantalon-cargo-gabardina-practical-line-con-cinta-hombre.webp",
+    description: "Pantalón cargo de gabardina con cinta reflectante. Combina funcionalidad y visibilidad básica en un diseño cómodo.",
+    details: ["Cinta reflectante incorporada", "Tela gabardina ligera", "Bolsillos cargo", "Uso en faenas con tránsito"],
+    featured: false
+  },
+  {
+    id: "pantalon-10",
+    name: "Pantalón Cargo Gabardina Practical Line",
+    category: "Pantalones",
+    image: "/Catalogo-image/pantalon-cargo-gabardina-practical-line-hombre (2).webp",
+    description: "Pantalón cargo clásico en gabardina para hombre. Versátil y liviano para el uso diario en actividades operativas.",
+    details: ["Gabardina resistente y fresca", "Corte amplio", "Múltiples organizadores", "Fácil mantenimiento"],
+    featured: false
+  },
+  {
+    id: "pantalon-11",
+    name: "Pantalón Cargo Tulipero Move Hombre",
+    category: "Pantalones",
+    image: "/Catalogo-image/pantalon-cargo-tulipero-move-hombre-.webp",
+    description: "Pantalón cargo Tulipero Move, con diseño ergonómico que facilita el desplazamiento y la flexión durante el trabajo.",
+    details: ["Línea Move (Movilidad extra)", "Diseño ergonómico en rodillas", "Tejido técnico", "Secado rápido"],
+    featured: true
+  },
+  {
+    id: "pantalon-12",
+    name: "Pantalón Executive Amount Hombre",
+    category: "Pantalones",
+    image: "/Catalogo-image/pantalon-executive-amount-hombre-ml.webp",
+    description: "Pantalón corporativo de la línea Executive Amount. Elegancia y formalidad para el área administrativa o de supervisión.",
+    details: ["Diseño formal ejecutivo", "Tela de excelente caída", "Planchado fácil", "Bolsillos invisibles"],
+    featured: true
+  },
+  {
+    id: "pantalon-13",
+    name: "Pantalón Executive Casual Slim Hombre",
+    category: "Pantalones",
+    image: "/Catalogo-image/pantalon-executive-casual-slim-hombre.webp",
+    description: "Pantalón corporativo estilo casual slim fit. La mezcla perfecta entre un estilo moderno juvenil y formalidad de oficina.",
+    details: ["Corte Slim Fit moderno", "Estilo casual y versátil", "Bolsillos diagonales", "Tela stretch para confort"],
+    featured: false
+  },
+  {
+    id: "pantalon-14",
+    name: "Pantalón Outwork Ripstop Acacio Mujer",
+    category: "Pantalones",
+    image: "/Catalogo-image/pantalon-outwork-ripstop-acacio-mujer-.webp",
+    description: "Pantalón técnico de la línea Outwork para mujer. Confeccionado en tela Ripstop anti-desgarro para las condiciones más duras.",
+    details: ["Tela Ripstop antidesgarro", "Diseño Outwork Acacio", "Protección UV integrada", "Zonas de fricción reforzadas"],
+    featured: true
+  },
+  
+  // 5. Poleras (9 productos)
+  {
+    id: "polera-1",
+    name: "Polera Reflectante de Alta Visibilidad",
+    category: "Poleras",
+    image: "/Catalogo-image/polera-reflectante-trasera.webp",
+    description: "Polera reflectante diseñada para máxima visibilidad en entornos de trabajo. Ideal para seguridad vial, faenas y construcción.",
+    details: ["Cintas reflectantes reglamentarias", "Tela respirable de alta visibilidad", "Costuras reforzadas", "Alta durabilidad"],
+    featured: true
+  },
+  {
+    id: "polera-2",
+    name: "Polera Dry Fit Manga Larga Hombre",
+    category: "Poleras",
+    image: "/Catalogo-image/polera-dry-fit-ml-hombre.webp",
+    description: "Polera deportiva y de trabajo manga larga para hombre con tecnología Dry Fit. Mantiene la piel fresca y seca durante toda la jornada.",
+    details: ["Tecnología Dry Fit", "Secado rápido y respirable", "Protección UV integrada", "Calce cómodo y liviano"],
+    featured: true
+  },
+  {
+    id: "polera-3",
+    name: "Polera Manga Corta Hombre 100% Algodón",
+    category: "Poleras",
+    image: "/Catalogo-image/polera-mc-hombre-100-alg.webp",
+    description: "Polera básica manga corta para hombre confeccionada en 100% algodón premium. Suave al tacto, cómoda y perfecta para el uso diario o eventos corporativos.",
+    details: ["100% Algodón premium", "Tacto suave y confortable", "Cuello redondo reforzado", "Ideal para estampado o bordado"],
+    featured: false
+  },
+  {
+    id: "polera-4",
+    name: "Polera Manga Larga Hombre 100% Algodón (170g)",
+    category: "Poleras",
+    image: "/Catalogo-image/polera-ml-hombre-100-alg-170g.webp",
+    description: "Polera manga larga para hombre con gramaje de 170g, confeccionada en algodón de alta calidad. Abrigadora, cómoda y resistente al uso continuo.",
+    details: ["100% Algodón de 170g", "Manga larga con puño semi-ajustado", "Costuras laterales reforzadas", "Apta para personalización corporativa"],
+    featured: false
+  },
+  {
+    id: "polera-5",
+    name: "Polera Polo Alta Visibilidad Bicolor ML Hombre",
+    category: "Poleras",
+    image: "/Catalogo-image/polera-polo-alta-visibilidad-bi-color-ml-hombre.webp",
+    description: "Polera tipo polo bicolor manga larga de alta visibilidad para hombre. Con cintas reflectantes y diseño formal deportivo, excelente para supervisores y operarios.",
+    details: ["Diseño bicolor de alta visibilidad", "Cintas reflectantes en torso y mangas", "Cuello polo con botones", "Puños tejidos elásticos"],
+    featured: true
+  },
+  {
+    id: "polera-6",
+    name: "Polera Polo Dry Fresh ML Hombre",
+    category: "Poleras",
+    image: "/Catalogo-image/polera-polo-dryfresh-ml-hombre-60-alg-40-poly.webp",
+    description: "Polera tipo polo manga larga modelo Dry Fresh para hombre. Confección premium con mezcla de algodón y poliéster para un look corporativo elegante y fresco.",
+    details: ["60% Algodón, 40% Poliéster", "Tecnología Dry Fresh respirable", "Cuello y puños tejidos", "Ideal para uniformes corporativos"],
+    featured: false
+  },
+  {
+    id: "polera-7",
+    name: "Polera Polo Dry Fresh ML Mujer",
+    category: "Poleras",
+    image: "/Catalogo-image/polera-polo-dryfresh-ml-mujer-60-alg-40-poly.webp",
+    description: "Polera tipo polo manga larga modelo Dry Fresh para mujer. Calce entallado femenino elegante, ideal para áreas administrativas, de ventas y supervisión.",
+    details: ["Corte entallado para mujer", "60% Algodón, 40% Poliéster", "Resistente a lavados frecuentes", "Secado rápido y planchado fácil"],
+    featured: false
+  },
+  {
+    id: "polera-8",
+    name: "Polera Polo Manga Larga Hombre",
+    category: "Poleras",
+    image: "/Catalogo-image/polera-polo-ml-hombre-60-alg-40-poly.webp",
+    description: "Polera tipo polo manga larga clásica para hombre. Brinda una excelente presentación corporativa con comodidad de movimiento.",
+    details: ["Mezcla de algodón y poliéster 60/40", "Tres botones en pechera", "Ajuste cómodo clásico", "Telas con tratamiento antipeeling"],
+    featured: true
+  },
+  {
+    id: "polera-9",
+    name: "Polera Polo Manga Larga Mujer",
+    category: "Poleras",
+    image: "/Catalogo-image/polera-polo-ml-mujer-80-alg-20-poly.webp",
+    description: "Polera tipo polo manga larga para mujer, confeccionada en mezcla rica en algodón. Tacto sumamente suave, excelente calce y durabilidad corporativa premium.",
+    details: ["80% Algodón, 20% Poliéster", "Calce entallado femenino", "Pechera con botones delicados", "Acabados de costura invisibles"],
+    featured: true
   }
 ];
 

@@ -34,7 +34,7 @@ export function Hero() {
       >
         <div
           className="absolute inset-0 bg-cover bg-center blur-sm scale-105"
-          style={{ backgroundImage: "url('/images/hero-bg.png')" }}
+          style={{ backgroundImage: "url('/images/hero-bg.webp')" }}
         />
         {/* Dark overlay for better text readability */}
         <div className="absolute inset-0 bg-black/50"></div>

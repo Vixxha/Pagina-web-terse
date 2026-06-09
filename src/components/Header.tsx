@@ -7,7 +7,6 @@ import { companyInfo } from "@/data/companyInfo";
 export function Header() {
   const navItems = [
     { name: "Inicio", href: "/" },
-    { name: "Nosotros", href: "/#nosotros" },
     { name: "Catálogo", href: "/catalogo" },
     { name: "Ubicación", href: "/#ubicacion" },
     { name: "Contacto", href: "/#contacto" },
@@ -36,7 +35,7 @@ export function Header() {
       className="bg-white/80 backdrop-blur-md sticky top-0 z-40 w-full shadow-sm border-b border-gray-100/50"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-24 md:h-28">
  
           {/* Logo */}
           <motion.div 
@@ -45,18 +44,18 @@ export function Header() {
             className="flex-shrink-0 flex items-center gap-3.5 cursor-pointer"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <div className="w-14 h-14 md:w-16 md:h-16 relative rounded-2xl overflow-hidden shadow-md flex items-center justify-center bg-white border border-slate-100 transition-all duration-300 hover:shadow-lg">
+            <div className="w-16 h-16 md:w-20 md:h-20 relative flex items-center justify-center transition-all duration-300">
               <img 
                 src={companyInfo.logo} 
                 alt={`${companyInfo.name} Logo`} 
-                className="object-contain w-full h-full p-1 transition-transform duration-350"
+                className="object-contain w-full h-full transition-transform duration-350 drop-shadow-sm"
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-black text-lg md:text-xl tracking-tight text-corporate-dark leading-none">
+              <span className="font-black text-2xl md:text-3xl tracking-tight text-corporate-dark leading-none">
                 TERSE
               </span>
-              <span className="font-bold text-[10px] md:text-xs tracking-[0.18em] text-corporate-yellow uppercase mt-1 leading-none">
+              <span className="font-bold text-xs md:text-sm tracking-[0.18em] text-corporate-yellow uppercase mt-1 leading-none">
                 LIMITADA
               </span>
             </div>

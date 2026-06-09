@@ -84,55 +84,16 @@ export function LocationSection() {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             className="w-full lg:w-1/2 relative"
           >
-            {/* Compass badge decoration */}
-            <div className="absolute -top-6 -right-6 z-20 bg-corporate-yellow text-corporate-dark w-16 h-16 rounded-full flex items-center justify-center shadow-lg font-black transform rotate-12">
-              <Compass className="animate-spin-slow w-8 h-8" />
-            </div>
-
             {/* Stylized Map Viewport */}
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3] bg-corporate-dark group flex items-center justify-center">
-
-              {/* Map Graphic Overlay Mock / Dark Theme Map aesthetic */}
-              <div className="absolute inset-0 bg-[#242a38] opacity-90 transition-all duration-700 group-hover:scale-105" style={{
-                backgroundImage: 'radial-gradient(circle, #2d3548 10%, transparent 11%), radial-gradient(circle at bottom left, #2d3548 20%, transparent 21%)',
-                backgroundSize: '40px 40px'
-              }}>
-                {/* Visual paths to look like a map */}
-                <div className="absolute top-1/3 left-0 w-full h-8 bg-corporate-dark/30 transform -rotate-12 border-y border-white/5"></div>
-                <div className="absolute top-0 left-1/3 w-8 h-full bg-corporate-dark/30 transform rotate-45 border-x border-white/5"></div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full border-2 border-corporate-yellow/10 animate-ping opacity-30"></div>
-
-                {/* Custom glowing pin */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                  <div className="relative">
-                    <span className="absolute inline-flex h-6 w-6 rounded-full bg-corporate-yellow opacity-75 animate-ping"></span>
-                    <div className="relative w-8 h-8 bg-corporate-yellow rounded-full flex items-center justify-center shadow-xl border-2 border-white">
-                      <MapPin size={16} className="text-corporate-dark font-black" />
-                    </div>
-                  </div>
-                  <div className="mt-2 bg-corporate-dark px-3 py-1 rounded-md text-[10px] uppercase font-bold tracking-widest text-white border border-white/10 shadow-lg">
-                    {companyInfo.name}
-                  </div>
-                </div>
-              </div>
-
-              {/* Glassmorphism visual prompt for 360 tour */}
-              <div className="relative z-10 max-w-sm px-6 py-8 rounded-3xl bg-corporate-dark/75 backdrop-blur-md border border-white/10 text-center m-6 flex flex-col items-center shadow-2xl">
-                <Compass className="text-corporate-yellow w-12 h-12 mb-4" />
-                <h3 className="text-xl font-bold text-white mb-2">Tour Virtual 360°</h3>
-                <p className="text-gray-300 text-xs font-semibold mb-6 leading-relaxed">
-                  Explora las dependencias de nuestro Showroom interactivo directamente a través de la vista de Google Street View.
-                </p>
-                <a
-                  href={companyInfo.googleMapsPhotosphereUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-corporate-yellow hover:bg-corporate-yellow-hover text-corporate-dark font-black px-6 py-3 rounded-full text-xs uppercase tracking-widest transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105"
-                >
-                  Abrir Tour 360°
-                  <ExternalLink size={14} />
-                </a>
-              </div>
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13318.129631984162!2d-70.65859659303811!3d-33.43543305494152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d05b784b68ef%3A0xf4ef52f98c56b230!2sTerse%20Limitada!5e0!3m2!1ses-419!2scl!4v1780609981807!5m2!1ses-419!2scl" 
+                className="w-full h-full absolute inset-0"
+                style={{ border: 0 }} 
+                allowFullScreen 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </motion.div>
 
