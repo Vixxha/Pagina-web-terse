@@ -76,7 +76,7 @@ export function FeaturedProducts() {
           viewport={{ once: true, margin: "-50px" }}
           className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-16"
         >
-          {featured.map((product) => (
+          {featured.map((product, index) => (
             <motion.div
               key={product.id}
               variants={cardVariants}
@@ -91,6 +91,7 @@ export function FeaturedProducts() {
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover group-hover:scale-[1.02] transition-transform duration-700"
+                  priority={index < 2}
                 />
                 <span className="absolute top-4 left-4 bg-corporate-yellow text-corporate-dark font-extrabold text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-full shadow-sm z-10">
                   Destacado
@@ -142,6 +143,7 @@ export function FeaturedProducts() {
                     fill
                     sizes="100vw"
                     className="object-cover"
+                    priority={currentSlide === 0}
                   />
                   <span className="absolute top-4 left-4 bg-corporate-yellow text-corporate-dark font-extrabold text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-full shadow-sm z-10">
                     Destacado

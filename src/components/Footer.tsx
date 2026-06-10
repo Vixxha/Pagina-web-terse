@@ -17,7 +17,7 @@ export function Footer() {
     e.preventDefault();
     const text = `Hola Terse Limitada, mi nombre es *${formData.name.trim()}* (${formData.email.trim()}).\n\n*Asunto:* ${formData.subject}\n\n*Mensaje:* ${formData.message.trim()}`;
     const link = getWhatsAppLink(companyInfo.whatsapp1.number, text);
-    window.open(link, '_blank', 'noopener,noreferrer');
+    window.location.href = link;
   };
 
   return (
@@ -32,8 +32,8 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-20 h-20 md:w-24 md:h-24 relative flex items-center justify-center">
+            <div className="flex items-center gap-3.5 mb-5 md:mb-8">
+              <div className="w-14 h-14 sm:w-20 md:w-24 relative flex items-center justify-center">
                 <img
                   src={companyInfo.logo}
                   alt={`${companyInfo.name} Logo`}
@@ -41,63 +41,66 @@ export function Footer() {
                 />
               </div>
               <div className="flex flex-col">
-                <span className="font-black text-3xl md:text-4xl tracking-tight text-corporate-dark leading-none">
+                <span className="font-black text-2xl sm:text-3xl md:text-4xl tracking-tight text-corporate-dark leading-none">
                   TERSE
                 </span>
-                <span className="font-bold text-sm md:text-base tracking-[0.18em] text-corporate-yellow uppercase mt-1 leading-none">
+                <span className="font-bold text-xs sm:text-sm tracking-[0.18em] text-corporate-yellow uppercase mt-0.5 sm:mt-1 leading-none">
                   LIMITADA
                 </span>
               </div>
             </div>
-            <p className="text-gray-600 mb-8 max-w-md font-medium">
+            <p className="text-gray-600 text-xs sm:text-sm md:text-base mb-6 md:mb-8 max-w-md font-medium leading-relaxed">
               Ofrecemos la mejor calidad en uniformes corporativos y ropa de trabajo. Con nosotros encuentras prendas diseñadas para durar, brindar comodidad y destacar la identidad profesional de tu empresa.
             </p>
 
             {/* Direct Contact Links */}
-            <div className="space-y-3 mb-8 text-sm font-semibold text-corporate-dark">
-              <a href="#ubicacion" className="flex items-center gap-2 hover:text-corporate-yellow transition-colors">
-                <MapPin size={16} className="text-corporate-yellow" />
-                <span>{companyInfo.address}, {companyInfo.commune}, {companyInfo.city}</span>
+            <div className="space-y-3.5 mb-6 md:mb-8 text-xs sm:text-sm font-semibold text-corporate-dark">
+              <a href="#ubicacion" className="flex items-start gap-2.5 hover:text-corporate-yellow transition-colors group">
+                <MapPin size={16} className="text-corporate-yellow shrink-0 mt-0.5" />
+                <div className="flex flex-col gap-0.5">
+                  <span><strong>Oficina:</strong> {companyInfo.address}, {companyInfo.commune}</span>
+                  <span className="text-gray-500 font-medium text-[10px] sm:text-xs"><strong>Despacho:</strong> {companyInfo.dispatchAddress}, {companyInfo.dispatchCommune}</span>
+                </div>
               </a>
-              <a href={`mailto:${companyInfo.email}`} className="flex items-center gap-2 hover:text-corporate-yellow transition-colors">
-                <Mail size={16} className="text-corporate-yellow" />
+              <a href={`mailto:${companyInfo.email}`} className="flex items-center gap-2.5 hover:text-corporate-yellow transition-colors">
+                <Mail size={14} className="text-corporate-yellow" />
                 <span>{companyInfo.email}</span>
               </a>
-              <div className="flex flex-col gap-2 pt-2">
+              <div className="flex flex-col gap-2.5 pt-1">
                 <a
                   href={getWhatsAppLink(companyInfo.whatsapp1.number, companyInfo.whatsapp1.message)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 hover:text-corporate-yellow transition-colors text-sm font-bold bg-corporate-gray px-5 py-3 rounded-xl w-fit"
+                  className="flex items-center gap-2.5 hover:text-corporate-yellow transition-colors text-sm sm:text-base font-black bg-corporate-gray px-5 py-3 rounded-xl w-fit"
                 >
-                  <MessageSquare size={18} className="text-[#25D366]" />
+                  <MessageSquare size={18} className="text-[#25D366] shrink-0" />
                   <span>Ventas 1: {companyInfo.whatsapp1.display}</span>
                 </a>
                 <a
                   href={getWhatsAppLink(companyInfo.whatsapp2.number, companyInfo.whatsapp2.message)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 hover:text-corporate-yellow transition-colors text-sm font-bold bg-corporate-gray px-5 py-3 rounded-xl w-fit"
+                  className="flex items-center gap-2.5 hover:text-corporate-yellow transition-colors text-sm sm:text-base font-black bg-corporate-gray px-5 py-3 rounded-xl w-fit"
                 >
-                  <MessageSquare size={18} className="text-[#25D366]" />
+                  <MessageSquare size={18} className="text-[#25D366] shrink-0" />
                   <span>Ventas 2: {companyInfo.whatsapp2.display}</span>
                 </a>
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-8">
-              <div className="flex gap-4">
-                <Trophy className="text-corporate-yellow shrink-0" size={32} />
+            <div className="flex flex-row gap-6 md:gap-8">
+              <div className="flex gap-2.5 sm:gap-4">
+                <Trophy className="text-corporate-yellow shrink-0" size={24} />
                 <div>
-                  <h4 className="font-extrabold text-corporate-dark text-xl">10+</h4>
-                  <p className="text-xs font-bold text-gray-400 uppercase tracking-wide">Años de Trayectoria</p>
+                  <h4 className="font-extrabold text-corporate-dark text-lg md:text-xl leading-none">10+</h4>
+                  <p className="text-[10px] sm:text-xs font-bold text-gray-400 uppercase tracking-wide mt-1">Años de Trayectoria</p>
                 </div>
               </div>
-              <div className="flex gap-4">
-                <Clock className="text-corporate-yellow shrink-0" size={32} />
+              <div className="flex gap-2.5 sm:gap-4">
+                <Clock className="text-corporate-yellow shrink-0" size={24} />
                 <div>
-                  <h4 className="font-extrabold text-corporate-dark text-xl">24/7</h4>
-                  <p className="text-xs font-bold text-gray-400 uppercase tracking-wide">Contacto Continuo</p>
+                  <h4 className="font-extrabold text-corporate-dark text-lg md:text-xl leading-none">24/7</h4>
+                  <p className="text-[10px] sm:text-xs font-bold text-gray-400 uppercase tracking-wide mt-1">Contacto Continuo</p>
                 </div>
               </div>
             </div>
@@ -224,14 +227,28 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="text-white font-bold mb-5 uppercase text-sm tracking-widest text-corporate-yellow">Ubicación</h4>
-            <div className="text-sm font-medium leading-relaxed flex items-start gap-2">
-              <MapPin size={16} className="text-gray-500 shrink-0 mt-0.5" />
-              <p>
-                {companyInfo.address}<br />
-                {companyInfo.commune}<br />
-                {companyInfo.city}, {companyInfo.country}
-              </p>
+            <h4 className="text-white font-bold mb-5 uppercase text-sm tracking-widest text-corporate-yellow">Ubicaciones</h4>
+            <div className="text-sm font-medium leading-relaxed space-y-4">
+              <div className="flex items-start gap-2">
+                <MapPin size={16} className="text-gray-500 shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-extrabold text-white text-xs uppercase tracking-wider text-corporate-yellow">Oficina / Showroom</p>
+                  <p>
+                    {companyInfo.address}<br />
+                    {companyInfo.commune}
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-2">
+                <MapPin size={16} className="text-gray-500 shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-extrabold text-white text-xs uppercase tracking-wider text-corporate-yellow">Bodega / Despacho</p>
+                  <p>
+                    {companyInfo.dispatchAddress}<br />
+                    {companyInfo.dispatchCommune}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
