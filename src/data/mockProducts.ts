@@ -485,6 +485,91 @@ export const mockProducts: Product[] = [
     description: "Polera tipo polo manga larga para mujer, confeccionada en mezcla rica en algodón. Tacto sumamente suave, excelente calce y durabilidad corporativa premium.",
     details: ["80% Algodón, 20% Poliéster", "Calce entallado femenino", "Pechera con botones delicados", "Acabados de costura invisibles"],
     featured: true
+  },
+
+  // 6. Polerones (3 productos)
+  {
+    id: "poleron-1",
+    name: "Polerón Basic ML Unisex (65% Algodón / 35% Poliéster)",
+    category: "Polerones",
+    image: "/Catalogo-image/poleron-basic-ml-unisex-65-alg-35-poly.webp",
+    description: "Polerón corporativo básico manga larga de corte unisex. Confeccionado en mezcla rica en algodón que garantiza suavidad, comodidad y excelente retención térmica.",
+    details: ["65% Algodón, 35% Poliéster", "Interior de franela suave y abrigadora", "Puños y pretina de rib elástico", "Costuras reforzadas en cuello y hombros"],
+    featured: false
+  },
+  {
+    id: "poleron-2",
+    name: "Polerón Hoodie Canguro ML Unisex",
+    category: "Polerones",
+    image: "/Catalogo-image/poleron-hoodie-canguro-ml-unisex.webp",
+    description: "Polerón con capucha y bolsillo tipo canguro frontal de calce unisex. Diseño casual y cómodo, ideal para eventos corporativos, promociones o personal de terreno.",
+    details: ["Capucha ajustable con cordón a tono", "Bolsillo canguro frontal amplio", "Tela térmica de alto gramaje con tacto suave", "Apto para estampados y bordados corporativos"],
+    featured: true
+  },
+  {
+    id: "poleron-3",
+    name: "Polerón Medio Cierre ML Unisex",
+    category: "Polerones",
+    image: "/Catalogo-image/poleron-medio-cierre-ml-unisex-65-poly-35-alg.webp",
+    description: "Polerón corporativo manga larga con medio cierre en el cuello. Aúna formalidad y abrigo deportivo en un diseño unisex de alto rendimiento.",
+    details: ["Medio cierre de nailon reforzado", "65% Poliéster, 35% Algodón", "Tratamiento antibolitas (antipeeling)", "Cuello alto protector contra el viento"],
+    featured: false
+  },
+
+  // 7. Camisas y Blusas (6 productos)
+  {
+    id: "camisa-1",
+    name: "Blusa Oxford Classic ML Mujer",
+    category: "Camisas y Blusas",
+    image: "/Catalogo-image/blusa-oxford-classic-ml-mujer.webp",
+    description: "Blusa corporativa clásica manga larga de tela Oxford para mujer. Diseño elegante, duradero y cómodo, ideal para uniformes de oficina, administrativas y atención al público.",
+    details: ["Tela Oxford premium de gran caída", "Corte entallado entallador femenino", "Cuello camisero estructurado", "Puños ajustables con botones duales"],
+    featured: false
+  },
+  {
+    id: "camisa-2",
+    name: "Blusa Trevira Light ML Mujer",
+    category: "Camisas y Blusas",
+    image: "/Catalogo-image/blusa-trevira-light-ml-mujer.webp",
+    description: "Blusa corporativa liviana manga larga confeccionada en trevira de alta calidad. Secado rápido y fácil planchado, perfecta para la jornada diaria en oficina.",
+    details: ["Mezcla de poliéster y algodón ligera", "Tecnología Easy Care de fácil planchado", "Calce entallado femenino cómodo", "Costuras reforzadas para lavados constantes"],
+    featured: false
+  },
+  {
+    id: "camisa-3",
+    name: "Camisa Outwork Abelia Hombre ML",
+    category: "Camisas y Blusas",
+    image: "/Catalogo-image/camisa-outwork-abelia-hombre-ml.webp",
+    description: "Camisa de trabajo manga larga de alta resistencia modelo Outwork Abelia para hombre. Excelente durabilidad, protección y comodidad en terreno o faena exigente.",
+    details: ["Línea de trabajo Outwork profesional", "Tela de alta resistencia al desgaste", "Doble bolsillo en el pecho con tapeta y botón", "Costuras triples reforzadas en costados"],
+    featured: false
+  },
+  {
+    id: "camisa-4",
+    name: "Camisa Outwork Ripstop Jubae ML Hombre",
+    category: "Camisas y Blusas",
+    image: "/Catalogo-image/camisa-outwork-ripstop-jubae-ml-hombre-1.webp",
+    description: "Camisa técnica manga larga para hombre en tela Ripstop anti-desgarro. Diseño altamente funcional con ventilación trasera y alta protección para terrenos industriales.",
+    details: ["Tela Ripstop antidesgarro ultra liviana", "Ventilación trasera con forro de malla respirable", "Bolsillos multifuncionales con cierres seguros", "Protección solar UPF integrada"],
+    featured: true
+  },
+  {
+    id: "camisa-5",
+    name: "Camisa Oxford Classic CBol ML Hombre",
+    category: "Camisas y Blusas",
+    image: "/Catalogo-image/camisa-oxford-classic-cbol-ml-hombre.webp",
+    description: "Camisa de vestir clásica manga larga con bolsillo de tela Oxford para hombre. Ideal para el día a día corporativo, ofreciendo un estilo formal, sobrio y profesional.",
+    details: ["Tela Oxford premium de textura clásica", "Bolsillo de parche en el pecho izquierdo", "Corte regular fit tradicional", "Cuello abotonado estructurado elegante"],
+    featured: false
+  },
+  {
+    id: "camisa-6",
+    name: "Camisa Trevira Light ML Hombre",
+    category: "Camisas y Blusas",
+    image: "/Catalogo-image/camisa-trevira-light-ml-hombre.webp",
+    description: "Camisa corporativa manga larga liviana de trevira para hombre. Confeccionada para alta durabilidad, fácil mantenimiento y excelente comodidad en oficina o terreno liviano.",
+    details: ["Tela trevira ligera, fresca y respirable", "Fácil planchado y secado rápido", "Bolsillo frontal clásico de parche", "Costuras reforzadas de alta durabilidad"],
+    featured: false
   }
 ];
 

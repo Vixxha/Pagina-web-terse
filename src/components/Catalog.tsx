@@ -13,7 +13,7 @@ export function Catalog() {
   const [visibleCount, setVisibleCount] = useState<number>(8);
   const [searchTerm, setSearchTerm] = useState<string>("");
 
-  const categories = ["Chaquetas", "Micropolares", "Parkas", "Pantalones", "Poleras"];
+  const categories = ["Chaquetas", "Micropolares", "Parkas", "Pantalones", "Poleras", "Polerones", "Camisas y Blusas"];
 
   const filteredProducts = mockProducts.filter((p) => {
     const matchesCategory = p.category === selectedCategory;
